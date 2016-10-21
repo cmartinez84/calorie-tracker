@@ -8,14 +8,17 @@ import { Item }   from './item.model';
   <h1>Root</h1>
 
   <item-list
-  [childItemList]="masterItemList"></item-list>
+  [childItemList]="masterItemList"
+  (editItemSender)="editItem($event)"
+  ></item-list>
+  <edit-item
+  [childClickedItem]="clickedItem"
+  (clickSender)="dontEditting()"
+  >
+  ></edit-item>
   <new-item
   (newItemSender)="addItemToMasterList($event)"
   ></new-item>
-  <edit-item
-  [childClickedItem]="clickedItem"
-  ></edit-item>
-
   `
 })
 
@@ -28,5 +31,12 @@ export class AppComponent {
     public clickedItem: Item = null;
     addItemToMasterList(newItem: Item){
         this.masterItemList.push(newItem);
+    }
+    editItem(clickedItem){
+        this.clickedItem = clickedItem;
+        console.log("sender works");
+    }
+    dontEditting(){
+        this.clickedItem = null;
     }
 }

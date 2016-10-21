@@ -1,7 +1,6 @@
 import { Component, Input, Output, EventEmitter } from '@angular/core';
 import { Item }   from './item.model';
 
-
 @Component({
   selector: 'item-list',
   template: `
@@ -20,5 +19,6 @@ export class ItemListComponent {
     @Output() editItemSender = new EventEmitter();
     editItemClicked(clickedItem: Item){
         this.editItemSender.emit(clickedItem);
+        console.log(clickedItem);
     }
 }

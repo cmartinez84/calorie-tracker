@@ -7,10 +7,10 @@ import { Item } from './item.model';
  <h1>Edit Connected</h1>
  <div *ngIf="childClickedItem" class="">
      <form>
-     <input type="text" [(ngModel)]="childClickedItem.name">
-     <input type="text" [(ngModel)]="childClickedItem.calories">
-     <input type="text" [(ngModel)]="childClickedItem.details">
-         <button type="button" (click)="doneClickedSender()">Done</button>
+     <input type="text" name="name" [(ngModel)]="childClickedItem.name">
+     <input type="text" name="calories"[(ngModel)]="childClickedItem.calories">
+     <input type="text" name="details"[(ngModel)]="childClickedItem.details">
+         <button type="button" (click)="doneClicked()">Done</button>
      </form>
  </div>
 `
@@ -18,4 +18,8 @@ import { Item } from './item.model';
 
 export class EditItemComponent {
     @Input() childClickedItem: Item;
+    @Output() doneClickedSender = new EventEmitter();
+    doneClicked(){
+        this.doneClickedSender.emit();
+    }
 }
