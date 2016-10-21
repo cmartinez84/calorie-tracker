@@ -10,6 +10,7 @@ import { Item }   from './item.model';
   <item-list
   [childItemList]="masterItemList"
   (editItemSender)="editItem($event)"
+  (removeItemSender)="removeItem($event)"
   ></item-list>
   <edit-item
   [childClickedItem]="clickedItem"
@@ -35,6 +36,9 @@ export class AppComponent {
     editItem(clickedItem){
         this.clickedItem = clickedItem;
         console.log("sender works");
+    }
+    removeItem(itemIndex: number){
+        this.masterItemList.splice(itemIndex, 1);
     }
     dontEditting(){
         this.clickedItem = null;
