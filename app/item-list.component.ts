@@ -5,6 +5,12 @@ import { Item }   from './item.model';
   selector: 'item-list',
   template: `
   <h1>My First Angular 2 App</h1>
+  <label>Sort My Calories</label>
+  <select (change)="sortByCalories($event.target.value)">
+  <option selected="selected">Show All</option>
+  <option>Ascending</option>
+  <option>Descending</option>
+  </select>
   <div *ngFor="let item of childItemList | calories: calorieSortType">
       <p><span>Name: {{item.name}} </span></p>
       <p><span>Calories: {{item.calories}}</span></p>
@@ -17,10 +23,13 @@ import { Item }   from './item.model';
 export class ItemListComponent {
     @Input() childItemList: Item[];
     @Output() editItemSender = new EventEmitter();
-    public calorieSortType: string = "descending";
+    public calorieSortType: string = "show all";
     editItemClicked(clickedItem: Item){
         this.editItemSender.emit(clickedItem);
         console.log(clickedItem);
+    }
+    sortByCalories(option:string ){
+        this.calorieSortType = option;
     }
 
 }
