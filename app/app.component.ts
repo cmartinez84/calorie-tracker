@@ -9,6 +9,9 @@ import { Item }   from './item.model';
 
   <item-list
   [childItemList]="masterItemList"></item-list>
+  <new-item
+  (newItemSender)="addItemToMasterList($event)"
+  ></new-item>
   `
 })
 
@@ -18,4 +21,7 @@ export class AppComponent {
     new Item("Magnum Bar", 600, "oops"),
     new Item("Al pasto Tacos", 400, "yaas")
 ];
+    addItemToMasterList(newItem: Item){
+        this.masterItemList.push(newItem);
+    }
 }
