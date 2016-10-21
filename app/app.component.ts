@@ -13,7 +13,7 @@ import { Item }   from './item.model';
   ></item-list>
   <edit-item
   [childClickedItem]="clickedItem"
-  (clickSender)="dontEditting()"
+  (doneClickSender)="dontEditting($event)"
   >
   ></edit-item>
   <new-item
@@ -38,5 +38,6 @@ export class AppComponent {
     }
     dontEditting(){
         this.clickedItem = null;
+        console.log("done running");
     }
 }
