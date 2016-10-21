@@ -1,9 +1,8 @@
-
-<div *ngFor="let item of childItemList">
-    <p><span>Name: {{item.name}} </span></p>
-    <p><span>Calories: {{item.calories}}</span></p>
-    <p><span>Details: {{item.details}}</span></p>
-</div>
-<div class="">
-    <h1>Here is a new Item component</h1>
+<div *ngIf="clickedItem" class="">
+    <form>
+        <input type="text" [(ngModel)]="clickedItem.name">
+        <input type="text" [(ngModel)]="clickedItem.calories">
+        <input type="text" [(ngModel)]="clickedItem.details">
+        <button type="button" (click)="doneClickedSender()">Done</button>
+    </form>
 </div>

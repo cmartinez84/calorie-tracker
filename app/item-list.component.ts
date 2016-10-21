@@ -10,10 +10,15 @@ import { Item }   from './item.model';
       <p><span>Name: {{item.name}} </span></p>
       <p><span>Calories: {{item.calories}}</span></p>
       <p><span>Details: {{item.details}}</span></p>
+      <button (click)="editItemClicked(item)">Edit Item</button>
   </div>
   `
 })
 
 export class ItemListComponent {
     @Input() childItemList: Item[];
+    @Output() editItemSender = new EventEmitter();
+    editItemClicked(clickedItem: Item){
+        this.editItemSender.emit(clickedItem);
+    }
 }

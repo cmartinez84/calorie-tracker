@@ -12,6 +12,10 @@ import { Item }   from './item.model';
   <new-item
   (newItemSender)="addItemToMasterList($event)"
   ></new-item>
+  <edit-item
+  [childClickedItem]="clickedItem"
+  ></edit-item>
+
   `
 })
 
@@ -19,8 +23,9 @@ export class AppComponent {
     public masterItemList: Item[] = [
     new Item("hamburger", 500, "delicious"),
     new Item("Magnum Bar", 600, "oops"),
-    new Item("Al pasto Tacos", 400, "yaas")
+    new Item("Al pastor Tacos", 400, "yaas")
 ];
+    public clickedItem: Item = null;
     addItemToMasterList(newItem: Item){
         this.masterItemList.push(newItem);
     }
