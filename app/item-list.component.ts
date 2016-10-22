@@ -13,9 +13,11 @@ import { Item }   from './item.model';
   </select>
   <div *ngFor="let item of childItemList | calories: calorieSortType; let i=index">
       <p><span>Name: {{item.name}} </span></p>
-      <p><span>Calories: {{item.calories}}</span></p>
+      <p><span>Calories per Portion: {{item.calories}}</span></p>
       <p><span>Details: {{item.details}}</span></p>
       <p><span>Quantity: {{item.quantity}}</span></p>
+      <p><span>Total Calories: {{item.getTotalCalories()}}</span></p>
+
       <input type="hidden" value="{{i}}">
       <button (click)="editItemClicked(item)">Edit Item</button>
       <button (click)="removeItemClicked(i)">Remove Item</button>
