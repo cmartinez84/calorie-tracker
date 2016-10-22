@@ -4,8 +4,8 @@ import { Item }   from './item.model';
 @Component({
   selector: 'item-list',
   template: `
-  <h1>My First Angular 2 App</h1>
-  <label>Sort My Calories</label>
+  <h1>yo {{allCalories()}}</h1>
+  <label>Sort Foods By Calories</label>
   <select (change)="sortByCalories($event.target.value)">
   <option selected="selected">Show All</option>
   <option>Ascending</option>
@@ -39,6 +39,13 @@ export class ItemListComponent {
     }
     sortByCalories(option:string ){
         this.calorieSortType = option;
+    }
+    allCalories(){
+        var output = 0;
+        this.childItemList.forEach(function(item){
+            output += item.getTotalCalories();
+        });
+        return output;
     }
 
 }
