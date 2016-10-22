@@ -1,5 +1,7 @@
 import { Component, Input, Output } from '@angular/core';
 import { Item }   from './item.model';
+import { Meal }   from './meal.model';
+
 
 
 @Component({
@@ -8,7 +10,7 @@ import { Item }   from './item.model';
   <h1>Root</h1>
 
   <item-list
-  [childItemList]="masterItemList"
+  [childItemList]="newMeal.mealItems"
   (editItemSender)="editItem($event)"
   (removeItemSender)="removeItem($event)"
   ></item-list>
@@ -24,21 +26,19 @@ import { Item }   from './item.model';
 })
 
 export class AppComponent {
-    public masterItemList: Item[] = [
-    new Item("hamburger", 500, "delicious", 1),
-    new Item("Magnum Bar", 600, "oops", 1),
-    new Item("Al pastor Tacos", 400, "yaas", 1)
-];
-    public clickedItem: Item = null;
+    public newMeal:Meal = new Meal();
+
+    public clickedItem: Item = null
+
     addItemToMasterList(newItem: Item){
-        this.masterItemList.push(newItem);
+        this.newMeal.mealItems.push(newItem);
     }
     editItem(clickedItem){
         this.clickedItem = clickedItem;
         console.log("sender works");
     }
     removeItem(itemIndex: number){
-        this.masterItemList.splice(itemIndex, 1);
+        this.newMeal.mealItems.splice(itemIndex, 1);
     }
     dontEditting(){
         this.clickedItem = null;

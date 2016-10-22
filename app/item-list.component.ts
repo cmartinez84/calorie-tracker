@@ -1,5 +1,7 @@
 import { Component, Input, Output, EventEmitter } from '@angular/core';
 import { Item }   from './item.model';
+import { Meal }   from './meal.model';
+
 
 @Component({
   selector: 'item-list',
@@ -16,7 +18,7 @@ import { Item }   from './item.model';
       <p><span>Calories per Portion: {{item.calories}}</span></p>
       <p><span>Details: {{item.details}}</span></p>
       <p><span>Quantity: {{item.quantity}}</span></p>
-      <p><span>Total Calories: {{item.getTotalCalories()}}</span></p>
+      <p><span>Total Calories: {{item.getItemCalories()}}</span></p>
 
       <input type="hidden" value="{{i}}">
       <button (click)="editItemClicked(item)">Edit Item</button>
@@ -43,7 +45,7 @@ export class ItemListComponent {
     allCalories(){
         var output = 0;
         this.childItemList.forEach(function(item){
-            output += item.getTotalCalories();
+            output += item.getItemCalories();
         });
         return output;
     }
