@@ -25,9 +25,9 @@ import { Item }   from './item.model';
 
 export class AppComponent {
     public masterItemList: Item[] = [
-    new Item("hamburger", 500, "delicious"),
-    new Item("Magnum Bar", 600, "oops"),
-    new Item("Al pastor Tacos", 400, "yaas")
+    new Item("hamburger", 500, "delicious", 1),
+    new Item("Magnum Bar", 600, "oops", 1),
+    new Item("Al pastor Tacos", 400, "yaas", 1)
 ];
     public clickedItem: Item = null;
     addItemToMasterList(newItem: Item){

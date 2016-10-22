@@ -15,6 +15,7 @@ import { Item }   from './item.model';
       <p><span>Name: {{item.name}} </span></p>
       <p><span>Calories: {{item.calories}}</span></p>
       <p><span>Details: {{item.details}}</span></p>
+      <p><span>Quantity: {{item.quantity}}</span></p>
       <input type="hidden" value="{{i}}">
       <button (click)="editItemClicked(item)">Edit Item</button>
       <button (click)="removeItemClicked(i)">Remove Item</button>

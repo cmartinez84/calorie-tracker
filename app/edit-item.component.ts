@@ -13,6 +13,8 @@ import { Item } from './item.model';
      <input type="number" name="calories"[(ngModel)]="childClickedItem.calories">
      <label>Details:</label>
      <input type="text" name="details"[(ngModel)]="childClickedItem.details">
+     <label>Quantity:</label>
+     <input type="number" name="quantity" [(ngModel)]="childClickedItem.quantity">
          <button type="button" (click)="doneClicked()">Done</button>
      </form>
  </div>

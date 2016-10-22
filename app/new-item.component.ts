@@ -13,7 +13,9 @@ import { Item } from './item.model';
           <input type="number" #newCalories placeholder="123">
           <label>Details:</label>
           <input type="text" #newDetails placeholder="steamed">
-          <button type="button" (click)="addItem(newName.value, newCalories.value, newDetails.value)">Submit</button>
+          <label>Quantity:</label>
+          <input type="number" name="quantity" #newQuantity placeholder="1" vale="1">
+          <button type="button" (click)="addItem(newName.value, newCalories.value, newDetails.value, newQuantity.value)">Submit</button>
       </form>
   </div>
   `
@@ -21,8 +23,8 @@ import { Item } from './item.model';
 
   export class NewItemComponent {
     @Output() newItemSender = new EventEmitter();
-    addItem(name, calories, details){
-        var newItem: Item = new Item(name, calories, details);
+    addItem(name, calories, details, quantity){
+        var newItem: Item = new Item(name, calories, details, quantity);
         this.newItemSender.emit(newItem);
     }
   }
