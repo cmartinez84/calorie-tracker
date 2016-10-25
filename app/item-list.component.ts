@@ -12,6 +12,9 @@ import { Meal }   from './meal.model';
   <option selected="selected">Show All</option>
   <option>Ascending</option>
   <option>Descending</option>
+  <option>over 500 kcal</option>
+  <option>under 500 kcal</option>
+
   </select>
   <div *ngFor="let item of childItemList | calories: calorieSortType; let i=index">
       <p><span>Name: {{item.name}} </span></p>

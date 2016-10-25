@@ -15,14 +15,30 @@ import {Item} from './item.model';
             });
             return output;
         }
-        else if(calorieSortType ==="Descending"){
+        else if(calorieSortType === "Descending"){
             output = input.sort(function(a,b){
                 return b.calories-a.calories;
             });
             return output;
         }
+        else if(calorieSortType === "over 500 kcal"){
+            input.forEach(function(item){
+                if(item.calories > 500){
+                    output.push(item);
+                }
+            });
+            return output;
+        }
+        else if(calorieSortType === "under 500 kcal"){
+            input.forEach(function(item){
+                if(item.calories <500){
+                    output.push(item);
+                }
+            });
+            return output;
+        }
         else{
             return input;
-        }
+            }
     }
-  }
+}
